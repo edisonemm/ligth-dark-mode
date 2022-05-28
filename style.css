@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES LIGTH - DARK */
+:root {
+    --body-bg-c: #eee;
+    --darkmodeBtn-bs-c: #0004;
+    --text-c: #111;
+}
+
+.dark-mode {
+    --body-bg-c: #111;
+    --darkmodeBtn-bs-c: #0008;
+    --text-c: #eee;
+}
+
+/* var(--transition-time) */
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--body-bg-c);
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+.darkmodeBtn {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px var(--darkmodeBtn-bs-c);
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.darkmodeBtn__ligth,
+.darkmodeBtn__dark {
+    position: absolute;
+    display: flex;
+    width: inherit;
+    height: inherit;
+    font-size: xx-large;
+    align-items: center;
+    justify-content: center;
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
+}
+
+.darkmodeBtn__ligth {
+    left: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+.darkmodeBtn__dark {
+    right: -100%;
+    background-color: #000;
+    color: #fff;
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}
+
+.dark-mode .darkmodeBtn__dark {
+    right: 0;
+}
+
+.dark-mode .darkmodeBtn__ligth {
+    left: -100%;
+}
+
+
+.help,
+.mode__ligth,
+.mode__dark {
+    position: absolute;
+    text-align: center;
+}
+
+.help {
+    --top: 100px;
+    --left: 160px;
+    display: inline-flex;
+    top: calc(50% - var(--top));
+    left: calc(50% - var(--left));
+    color: var(--text-c);
+    font-size: 25px;
+}
+
+.help__line {
+    position: relative;
+    top: 10px;
+    font-size: xx-large;
+    opacity: .7;
+}
+
+.mode__ligth,
+.mode__dark {
+    top: 60%;
+    font-size: 15vw;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 4px var(--text-c);
+    opacity: .1;
+    cursor: default;
+}
+
+.mode__dark {
+    opacity: 0;
+}
+
+.dark-mode .mode__dark {
+    opacity: 0.1;
+}
+
+.dark-mode .mode__ligth {
+    opacity: 0;
+}
+
+@media (max-width: 425px) {
+    .help {
+        --top: 90px;
+        --left: 128px;
+        font-size: 20px;
+    }
+}
